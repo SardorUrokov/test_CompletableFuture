@@ -1,13 +1,13 @@
 package org.mkb.async.Test;
 
-import org.mkb.async.database.EmployeeDatabase;
 import org.mkb.async.dto.Employee;
+import org.mkb.async.database.EmployeeDatabase;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-import java.util.stream.Collectors;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 public class EmployeeReminderService {
 
@@ -20,12 +20,12 @@ public class EmployeeReminderService {
         }, executor).thenApplyAsync((employees) -> {
             System.out.println("filter new joiner employee  : " + Thread.currentThread().getName());
             return employees.stream()
-                    .filter(employee -> "TRUE".equals(employee.isNewJoiner()))
+                    .filter(employee -> "true".equals(employee.isNewJoiner()))
                     .collect(Collectors.toList());
         }, executor).thenApplyAsync((employees) -> {
             System.out.println("filter training not complete employee  : " + Thread.currentThread().getName());
             return employees.stream()
-                    .filter(employee -> "TRUE".equals(employee.isLearningPending()))
+                    .filter(employee -> "true".equals(employee.isLearningPending()))
                     .collect(Collectors.toList());
         }, executor).thenApplyAsync((employees) -> {
             System.out.println("get emails  : " + Thread.currentThread().getName());
