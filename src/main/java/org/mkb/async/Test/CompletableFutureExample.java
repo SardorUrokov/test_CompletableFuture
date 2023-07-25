@@ -1,12 +1,11 @@
 package org.mkb.async.Test;
 
-
-import org.mkb.async.database.EmployeeDatabase;
 import org.mkb.async.dto.Employee;
+import org.mkb.async.database.EmployeeDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -61,7 +60,7 @@ public class CompletableFutureExample {
                     // Simulate some time-consuming processing here (e.g., fetching data, calculations, etc.).
                     System.out.println(" Processing customer: " + customer.getFirstName() + " " + customer.getLastName() + " " +
                             "(ID: " + customer.getEmployeeId() +
-                            ";  FullName: " + customer.getFirstName() + "  " + customer.getLastName() +
+                            ";  FullName: " + customer.getFirstName() + " " + customer.getLastName() +
                             ";  Email: " + customer.getEmail() + ")");
 
                     // Simulate some processing time (500 milliseconds to 2 seconds).
